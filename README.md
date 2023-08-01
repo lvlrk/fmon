@@ -35,6 +35,7 @@ Example code:
 ```cpp
 #include <iostream> // std::cout
 #include <stdexcept> // std::exception
+#include <string> // std::string
 #include <fmon.h> // FileMonitor
 
 void foo(const char *file) {
@@ -47,9 +48,10 @@ void foo(const char *file) {
 int main() {
     FileMonitor fm(foo);
 
-    std::string file = ""; // your file here
+    std::string file = ""; // your filename here
+
+    // for however many files
     fm.files.push_back(file);
-    // ... for however many files
 
     try {
         fm.Main();
