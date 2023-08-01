@@ -1,7 +1,8 @@
 # fmon-1.0
 A tool to monitor whether file(s) were modified
 
-Note: currently, this program is only available on `linux`
+## Note:
+currently, this program is only available on `linux`
 
 # Files
 `build.sh`: Builds the `fmon` program<br>
