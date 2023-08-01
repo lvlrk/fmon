@@ -4,7 +4,7 @@
 #include <stdexcept> // std::exception
 #include "fmon.h"    // FileMonitor
 #include "util.h"    // GetArgs()
-#include "sys.h"     // OS, OS_UNIX, OS_WINDOWS, AR, AR_i686, AR_x86_64
+#include "sys.h"     // AR
 
 #if OS == OS_UNIX
 # if AR == AR_i686
@@ -12,13 +12,15 @@
 # elif AR == AR_x86_64
 #  define PROG "fmon"
 # endif
-#else
-# if AR == AR_i686
-#  define PROG "fmon32.exe"
-# elif AR == AR_x86_64
-#  define PROG "fmon.exe"
-# endif
 #endif
+// will use when implementing windows stuff
+/* #else
+   # if AR == AR_i686
+   #  define PROG "fmon32.exe"
+   # elif AR == AR_x86_64
+   #  define PROG "fmon.exe"
+   # endif
+   #endif */
 
 void Modified(const char *file) {
     std::cout << '\'' << file << "' was modified\n";
