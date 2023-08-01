@@ -2,27 +2,27 @@
 
 #include <string> // std::string
 
-// OS 'enum'
+// OS enum
 #define OS_WINDOWS 0
 #define OS_UNIX 1
 
-// Architecture 'enum'
+// Architecture enum
 #define AR_i686 0   // 32-bit
 #define AR_x86_64 1 // 64-bit
 
 // awesome preprocessor jumble :thumbsup:
 #if _WIN32 || _WIN64
 # define OS OS_WINDOWS
-# if _WIN64
+# if _WIN64 && !_WIN32
 #  define AR AR_x86_64
-# elif __i686__
+# elif _WIN32 && !_WIN64
 #  define AR AR_i686
 # endif
 #else
 # define OS OS_UNIX
-# if __x86_64__
+# if __x86_64__ && !__i686__
 #  define AR AR_x86_64
-# elif __i686__
+# elif __i686__ && !__x86_64__
 #  define AR AR_i686
 # endif
 #endif

@@ -7,20 +7,10 @@
 #include "sys.h"     // AR
 
 #if OS == OS_UNIX
-# if AR == AR_i686
-#  define PROG "fmon32"
-# elif AR == AR_x86_64
 #  define PROG "fmon"
-# endif
+#else
+#  define PROG "fmon.exe"
 #endif
-// will use when implementing windows stuff
-/* #else
-   # if AR == AR_i686
-   #  define PROG "fmon32.exe"
-   # elif AR == AR_x86_64
-   #  define PROG "fmon.exe"
-   # endif
-   #endif */
 
 void Modified(const char *file) {
     std::cout << '\'' << file << "' was modified\n";
