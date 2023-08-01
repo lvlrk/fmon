@@ -47,9 +47,8 @@ void foo(const char *file) {
 int main() {
     FileMonitor fm(foo);
 
-    fm.files.push_back("file1");
-    fm.files.push_back("file2");
-    fm.files.push_back("file3");
+    std::string file = ""; // your file here
+    fm.files.push_back(file);
     // ... for however many files
 
     try {
