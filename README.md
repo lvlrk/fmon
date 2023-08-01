@@ -1,8 +1,7 @@
 # fmon-1.1
 A tool to monitor whether file(s) were modified
 
-## Note:
-currently, this program is only available on `linux`
+### Note: Currently, this program is only available on `linux`
 
 # Files
 `build.sh`: Builds the `fmon` program<br>
@@ -13,23 +12,16 @@ currently, this program is only available on `linux`
 `uninstall.sh`: Removes the `fmon` library (run as root)
 
 # Program usage
-Run<br>
-`$ fmon -`<br>
-to monitor filenames from stdin.
+Run `$ fmon -` to monitor filenames from stdin.
 
-Otherwise, run<br>
-`$ fmon file1 file2 file3 ...`<br>
+Otherwise, run `$ fmon file1 file2 file3 ...`<br>
 to monitor file1 file2 and file3, etc.
 
 # API usage
-Just add `include/fmon.h` and `src/fmon.cpp` to your project source,<br>
-or run<br>
-`# ./install.sh`<br>
-to install the `fmon` library
+Just add `include/fmon.h` and `src/fmon.cpp` to your project source.<br>
+Or run `# ./install.sh` to install the `fmon` library
 
-Run<br>
-`# ./uninstall.sh`<br>
-to uninstall the `fmon` library
+Run `# ./uninstall.sh` to uninstall the `fmon` library
 
 Example code:
 ```cpp
