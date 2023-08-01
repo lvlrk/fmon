@@ -1,4 +1,4 @@
-# fmon-1.0
+# fmon-1.1
 A tool to monitor whether file(s) were modified
 
 ## Note:
@@ -55,8 +55,8 @@ int main() {
 
     try {
         fm.Main();
-    } catch(const std::exception& ex) {
-        std::cerr << ex.what() << std::endl;
+    } catch(const std::exception& e) {
+        std::cerr << e.what() << '\n';
     }
 
     return 0;
