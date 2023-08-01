@@ -26,6 +26,7 @@ public:
 
     // used by `MonitorFile()`
     bool shouldPoll = true;
+    std::chrono::seconds pollDelay = std::chrono::seconds(2);
 private:
     // threading-related
     void CloseThreads(); // joins all threads together

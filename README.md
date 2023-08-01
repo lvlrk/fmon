@@ -52,7 +52,7 @@ Or run `# make clean lib-install` to install the `fmon` library.
 Run `# make lib-uninstall` to uninstall the `fmon` library.
 
 ##### Note:
-Make sure to the `-lfmon` compiler flag.
+Make sure to the `-lfmon` linker flag.
 
 Example code:
 ```cpp

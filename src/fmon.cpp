@@ -1,6 +1,13 @@
 #include <stdexcept> // std::runtime_error
-#include <sys/stat.h> // struct stat, stat()
+#include <chrono> // std::chrono::seconds()
+#include <sys/stat.h> // struct stat, stat() (windows: struct _stat -> stat, _stat() - > stat())
 #include "fmon.h"
+
+#if _WIN32 || _WIN64
+#define stat _stat
+#else
+#include <sys/stat.h> // struct stat, stat()
+#endif
 
 FileMonitor::FileMonitor(void (*func)(const char*)):
 func{func} {}
@@ -37,6 +44,9 @@ void FileMonitor::MonitorFile(int index) {
 
     while(shouldPoll) {
         pMtime = mtime;
+
+        std::this_thread::sleep_for(pollDelay);
+
         if(stat(files[index].c_str(), &st) == -1)
             throw std::runtime_error("MonitorFile(): bad stat '" +
                                      files[index] + '\'');
