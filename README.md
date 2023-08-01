@@ -24,10 +24,9 @@ method to poll file modification.
 
 
 # Patch notes
-* v1.0:   initial version<br>
-* v1.1: - remove debug conditions<br>
-* v1.2: - add i686 support<br>
-        + small bug fixes
+## v1.0: initial version<br>
+## v1.1: remove debug conditions<br>
+## v1.2: add i686 support, + small bug fixes
 
 
 
@@ -49,8 +48,8 @@ To use the 32-bit version of the program/library,<br>
 append 32 to the makefile target, or the actual `fmon` command.
 
 Example:<br>
-`$ make install32` To install the 32-bit `fmon32` program.<br>
-`# make lib-install32` To install the 32-bit `fmon` library.<br>
+`# make clean install32` To install the 32-bit `fmon32` program.<br>
+`# make clean lib-install32` To install the 32-bit `fmon` library.<br>
 
 `$ fmon32` To run fmon in 32-bit mode.
 
