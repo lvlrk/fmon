@@ -58,7 +58,7 @@ endif
 endif
 ifeq ($(PLATFORM),windows)
 ifeq ($(OS),Windows_NT)
-	cp $(TARGET)$(TARGETEXT) C:\Windows
+	cp $(TARGET)$(TARGETEXT) C:\windows\$(TARGET)$(TARGETEXT)
 else
 	@echo "cannot install windows fmon to unix"
 	$(MAKE) clean
@@ -77,7 +77,7 @@ endif
 endif
 ifeq ($(PLATFORM),windows)
 ifeq ($(OS),Windows_NT)
-	rd /s /q C:\Windows\$(TARGET)$(TARGETEXT)
+	rd /s /q C:\windows\$(TARGET)$(TARGETEXT)
 else
 	@echo "cannot uninstall windows fmon from unix"
 	$(MAKE) clean
@@ -105,7 +105,8 @@ endif
 ifeq ($(PLATFORM),windows)
 ifeq ($(OS),Windows_NT)
 	@echo "to include fmon.h you need to copy include/fmon.h to your project source directory"
-	cp $(LIB)$(LIBEXT) C:\Windows
+	cp $(LIB)$(LIBEXT) C:\windows\system32\$(LIB)$(LIBEXT)
+	cp $(LIB)$(LIBEXT) C:\msys64\usr\lib\$(LIB)$(LIBEXT)
 else
 	@echo "cannot install windows fmon library to unix"
 	$(MAKE) clean
@@ -124,7 +125,8 @@ endif
 endif
 ifeq ($(PLATFORM),windows)
 ifeq ($(OS),Windows_NT)
-	rd /s /q C:\system32\$(LIB)$(LIBEXT)
+	rd /s /q C:\windows\system32\$(LIB)$(LIBEXT)
+	rd /s /q C:\msys64\usr\lib\$(LIB)$(LIBEXT)
 else
 	@echo "cannot uninstall windows fmon library from unix"
 	$(MAKE) clean
