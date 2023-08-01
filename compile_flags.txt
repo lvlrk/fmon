@@ -1,0 +1,4 @@
+# Compile flags for clangd
+
+-Iinclude
+-std=c++17

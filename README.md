@@ -1,27 +1,74 @@
-# fmon-1.1
-A tool to monitor whether file(s) were modified
+# fmon-1.2
+A quick, easy, and multi-threaded<br>
+method to poll file modification
 
-### Note: Currently, this program is only available on `linux`
+## Supported systems
+Amazing diagram (thanks lvlrk) (you're welcome lvlrk)
 
-# Files
-`build.sh`: Builds the `fmon` program<br>
-`clean.sh`: Cleans up the built files (`fmon`, `*.o`, `*.so`)<br>
-`install.sh`: Installs the `fmon` library (run as root)<br>
+               +-----------+-----------+
+               |           |           |
+               |  x86_64   |   i686    |
+               | (64-bit)  | (32-bit)  |
+               |           |           |
++--------------+-----------+-----------+
+|              |           |           |
+|     Unix     |    Yes    |    Yes    |
+|              |           |           |
++--------------+-----------+-----------+
+|              |           |           |
+|    Windows   |     No    |    No     |
+|              | (Not yet) | (Not yet) |
+|              |           |           |
++--------------+-----------+-----------+
+
+
+
+# Patch notes
+* v1.0:   initial version<br>
+* v1.1: - remove debug conditions<br>
+* v1.2: - add i686 support
+
+
+
+## Project structure
+`include/`: `fmon` headers<br>
+`src/`: `fmon` source code<br>
 `LICENSE`: `fmon`'s GPL3 license<br>
-`src`: `fmon` source code<br>
-`uninstall.sh`: Removes the `fmon` library (run as root)
+`Makefile`: `fmon`'s very awesome and/or cool build file<br>
+`compile_flags.txt`: config for `clangd`
+
+#### Note for any compilation
+To use the 32-bit version of the program/library,<br>
+append 32 to the makefile target
+
+Example:<br>
+`$ make install32` To install `fmon32`<br>
+`# make lib-install32` To install the 32-bit `fmon` library
 
 # Program usage
-Run `$ fmon -` to monitor filenames from stdin.
+Run `$ fmon -` to monitor filenames from stdin.<br>
+Otherwise, run `$ fmon [FILE]...` to monitor FILEs.
 
-Otherwise, run `$ fmon file1 file2 file3 ...`<br>
-to monitor file1 file2 and file3, etc.
+### Installation
+Run `# make clean install` to install `fmon`
 
-# API usage
-Just add `include/fmon.h` and `src/fmon.cpp` to your project source.<br>
-Or run `# ./install.sh` to install the `fmon` library
+### Uninstallation
+Run `# make uninstall` to uninstall `fmon`
 
-Run `# ./uninstall.sh` to uninstall the `fmon` library
+
+
+# Library usage
+Add `include/fmon.h` and `src/fmon.cpp` to your project source.<br>
+
+### Library Installation
+Or run `# make clean lib-install` to install the `fmon` library
+
+##### Note:
+If you are compiling with the 32-bit version (which I don't know why you would do)<br>
+make sure to use the flag `-lfmon32`.
+
+### Library Uninstallation
+Run `# make lib-uninstall` to uninstall the `fmon` library
 
 Example code:
 ```cpp

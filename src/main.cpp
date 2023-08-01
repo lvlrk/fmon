@@ -1,18 +1,32 @@
-#include <vector> // std::vector
-#include <string> // std::string
-#include <iostream> // std::cout, std::cerr
+#include <vector>    // std::vector
+#include <string>    // std::string
+#include <iostream>  // std::cout, std::cerr
 #include <stdexcept> // std::exception
-#include "fmon.h" // FileMonitor
-#include "util.h" // GetArgs()
+#include "fmon.h"    // FileMonitor
+#include "util.h"    // GetArgs()
+#include "sys.h"     // OS, OS_UNIX, OS_WINDOWS, AR, AR_i686, AR_x86_64
+
+#if OS == OS_UNIX
+# if AR == AR_i686
+#  define PROG "fmon32"
+# elif AR == AR_x86_64
+#  define PROG "fmon"
+# endif
+#else
+# if AR == AR_i686
+#  define PROG "fmon32.exe"
+# elif AR == AR_x86_64
+#  define PROG "fmon.exe"
+# endif
+#endif
 
 void Modified(const char *file) {
     std::cout << '\'' << file << "' was modified\n";
 }
 
 int main(int argc, char **argv) {
-    // usage screen
     if(argc < 2) {
-        std::cerr << "Usage: fmon [-] [FILE]...\n";
+        std::cerr << "Usage: " << PROG << " [-] [FILE]...\n";
 
         return 1;
     }
@@ -29,7 +43,7 @@ int main(int argc, char **argv) {
     if(!useStdin) {
         for(const std::string& arg: args) fm.files.push_back(arg);
     } else {
-        std::cout << "fmon: reading from stdin\n";
+        std::cout << PROG << ": reading from stdin\n";
 
         std::string tmp;
 
