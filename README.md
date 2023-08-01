@@ -4,12 +4,12 @@ A tool to monitor whether file(s) were modified
 Note: currently, this program is only available on `linux`
 
 # Files
-`build.sh`: Builds the `fmon` program
-`clean.sh`: Cleans up the built files (`fmon`, `*.o`, `*.so`)
-`install.sh`: Installs the `fmon` library (run as root)
-`LICENSE`: `fmon`'s GPL3 license
-`src`: `fmon` source code
-`uninstall.sh`: Removes the `fmon` library (run as root)
+`build.sh`: Builds the `fmon` program<br>
+`clean.sh`: Cleans up the built files (`fmon`, `*.o`, `*.so`)<br>
+`install.sh`: Installs the `fmon` library (run as root)<br>
+`LICENSE`: `fmon`'s GPL3 license<br>
+`src`: `fmon` source code<br>
+`uninstall.sh`: Removes the `fmon` library (run as root)<br>
 
 # Program usage
 Run
