@@ -9,25 +9,25 @@ Note: currently, this program is only available on `linux`
 `install.sh`: Installs the `fmon` library (run as root)<br>
 `LICENSE`: `fmon`'s GPL3 license<br>
 `src`: `fmon` source code<br>
-`uninstall.sh`: Removes the `fmon` library (run as root)<br>
+`uninstall.sh`: Removes the `fmon` library (run as root)
 
 # Program usage
-Run
-`$ fmon -`
+Run<br>
+`$ fmon -`<br>
 to monitor filenames from stdin.
 
-Otherwise, run
-`$ fmon file1 file2 file3 ...`
+Otherwise, run<br>
+`$ fmon file1 file2 file3 ...`<br>
 to monitor file1 file2 and file3, etc.
 
 # API usage
-Just add `include/fmon.h` and `src/fmon.cpp` to your project source,
-or run
-`# ./install.sh`
+Just add `include/fmon.h` and `src/fmon.cpp` to your project source,<br>
+or run<br>
+`# ./install.sh`<br>
 to install the `fmon` library
 
-Run
-`# ./uninstall.sh`
+Run<br>
+`# ./uninstall.sh`<br>
 to uninstall the `fmon` library
 
 Example code:
@@ -60,4 +60,5 @@ int main() {
     return 0;
 }
 ```
-# lvlrk 2023
+
+### lvlrk 2023
