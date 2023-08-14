@@ -1,4 +1,4 @@
-# fmon-1.3
+# fmon-1.4
 A quick, easy, and multi-threaded<br>
 method to poll file modification.
 
@@ -13,6 +13,7 @@ Windows: Yes
 ## v1.1: removed debug conditions<br>
 ## v1.2: added i686 support, + small bug fixes
 ## v1.3: removed 1686 support, added windows support
+## v1.4: stat may not always throw exceptions :D
 
 
 

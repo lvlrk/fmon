@@ -25,8 +25,9 @@ public:
     std::vector<std::string> files;
 
     // used by `MonitorFile()`
+    bool ignoreBadStat = false;
     bool shouldPoll = true;
-    std::chrono::seconds pollDelay = std::chrono::seconds(2);
+    std::chrono::seconds pollDelay = std::chrono::seconds(3);
 private:
     // threading-related
     void CloseThreads(); // joins all threads together

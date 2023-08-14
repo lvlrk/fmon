@@ -37,9 +37,12 @@ void FileMonitor::MonitorFile(int index) {
     struct stat st;
     int mtime, pMtime;
 
-    if(stat(files[index].c_str(), &st) == -1)
-        throw std::runtime_error("MonitorFile(): bad initial stat '" +
-                                 files[index] + '\'');
+    if(stat(files[index].c_str(), &st) == -1) {
+        if(!ignoreBadStat) {
+            throw std::runtime_error("MonitorFile(): bad initial stat '" +
+                                      files[index] + '\'');
+        }
+    }
     mtime = st.st_mtime;
 
     while(shouldPoll) {
